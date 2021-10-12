@@ -7,7 +7,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vel.saveo.R
-import com.vel.saveo.ui.main.model.RecyclerViewAdapter
 import com.vel.saveo.ui.main.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.coroutines.flow.collectLatest

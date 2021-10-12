@@ -1,4 +1,4 @@
-package com.vel.saveo.ui.main.model
+package com.vel.saveo.ui.main.view
 
 import android.view.LayoutInflater
 import android.view.View
