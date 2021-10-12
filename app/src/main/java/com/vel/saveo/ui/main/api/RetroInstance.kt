@@ -3,10 +3,6 @@ package com.vel.saveo.ui.main.api
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-
-/**
- * Created by Velmurugan on 9/24/2021.
- */
 class RetroInstance {
     companion object {
         // Base url of the api
