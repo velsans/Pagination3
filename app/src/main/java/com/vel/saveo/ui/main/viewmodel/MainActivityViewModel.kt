@@ -8,7 +8,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.vel.saveo.ui.main.api.ApiService
 import com.vel.saveo.ui.main.api.RetroInstance
-import com.vel.saveo.ui.main.response.CharacterData
+import com.vel.saveo.ui.main.model.CharacterData
 import com.vel.saveo.ui.main.utils.CharacterPagingSource
 import kotlinx.coroutines.flow.Flow
 
@@ -17,11 +17,7 @@ import kotlinx.coroutines.flow.Flow
  */
 class MainActivityViewModel : ViewModel() {
 
-    var apiService: ApiService
-
-    init {
-        apiService = RetroInstance.getRetroInstance().create(ApiService::class.java)
-    }
+    var apiService: ApiService = RetroInstance.getRetroInstance().create(ApiService::class.java)
 
     fun getListData(): Flow<PagingData<CharacterData>> {
         return Pager(config = PagingConfig(pageSize = 20, maxSize = 200),

@@ -1,4 +1,4 @@
-package com.vel.saveo.ui.main.view
+package com.vel.saveo.ui.main.utils
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.vel.saveo.R
-import com.vel.saveo.ui.main.response.CharacterData
+import com.vel.saveo.ui.main.model.CharacterData
 
 class RecyclerViewAdapter: PagingDataAdapter<CharacterData, RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
 

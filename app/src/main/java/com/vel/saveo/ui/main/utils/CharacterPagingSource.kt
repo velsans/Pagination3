@@ -4,7 +4,7 @@ import android.net.Uri
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.vel.saveo.ui.main.api.ApiService
-import com.vel.saveo.ui.main.response.CharacterData
+import com.vel.saveo.ui.main.model.CharacterData
 
 
 /**
