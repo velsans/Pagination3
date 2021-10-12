@@ -9,10 +9,11 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.vel.saveo.R
 import com.vel.saveo.ui.main.model.CharacterData
 
-class RecyclerViewAdapter: PagingDataAdapter<CharacterData, RecyclerViewAdapter.MyViewHolder>(DiffUtilCallBack()) {
+class RecyclerViewHorizontalAdapter : PagingDataAdapter<CharacterData, RecyclerViewHorizontalAdapter.MyViewHolder>(DiffUtilCallBack()) {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
@@ -20,30 +21,26 @@ class RecyclerViewAdapter: PagingDataAdapter<CharacterData, RecyclerViewAdapter.
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.list_item, parent, false)
+        val inflater = LayoutInflater.from(parent.context).inflate(R.layout.list_item_horizonal, parent, false)
 
         return MyViewHolder(inflater)
     }
 
-    class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    class MyViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
-        val imageView: ImageView = view.findViewById(R.id.imageView)
-        val tvName: TextView = view.findViewById(R.id.tvName)
-        val tvDesc: TextView = view.findViewById(R.id.tvDesc)
+        val imageView: ImageView = view.findViewById(R.id.imageViewBig)
 
         fun bind(data: CharacterData) {
-            tvName.text = data.name
-            tvDesc.text = data.species
-
-            Glide.with(imageView)
-                .load(data.image)
-                .circleCrop()
+            Glide.with(imageView).load(data.image)
+                .thumbnail(0.2f)
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView)
 
         }
     }
 
-    class DiffUtilCallBack: DiffUtil.ItemCallback<CharacterData>() {
+    class DiffUtilCallBack : DiffUtil.ItemCallback<CharacterData>() {
         override fun areItemsTheSame(oldItem: CharacterData, newItem: CharacterData): Boolean {
             return oldItem.name == newItem.name
         }
