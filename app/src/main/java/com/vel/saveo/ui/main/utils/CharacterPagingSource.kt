@@ -6,10 +6,6 @@ import androidx.paging.PagingState
 import com.vel.saveo.ui.main.api.ApiService
 import com.vel.saveo.ui.main.model.CharacterData
 
-
-/**
- * Created by Velmurugan on 10/11/2021.
- */
 class CharacterPagingSource(val apiService: ApiService): PagingSource<Int, CharacterData>() {
     override fun getRefreshKey(state: PagingState<Int, CharacterData>): Int? {
 
